@@ -1,0 +1,99 @@
+{
+  "database": {
+    "type": "sqlite",
+    "path": "./data/agent-system.db",
+    "migrations": "./src/services/database/migrations"
+  },
+  "server": {
+    "port": 3000,
+    "host": "localhost",
+    "cors": {
+      "origin": "*",
+      "methods": ["GET", "POST", "PUT", "DELETE"]
+    }
+  },
+  "notification": {
+    "desktop": {
+      "enabled": true,
+      "sound": true,
+      "timeout": 5000
+    },
+    "email": {
+      "enabled": false,
+      "smtp": {
+        "host": "",
+        "port": 587,
+        "secure": true,
+        "auth": {
+          "user": "",
+          "pass": ""
+        }
+      },
+      "from": "",
+      "to": []
+    }
+  },
+  "calendar": {
+    "google": {
+      "enabled": false,
+      "credentials": {
+        "clientId": "",
+        "clientSecret": "",
+        "redirectUri": "http://localhost:3000/auth/google/callback"
+      },
+      "scopes": [
+        "https://www.googleapis.com/auth/calendar.readonly",
+        "https://www.googleapis.com/auth/calendar.events"
+      ]
+    }
+  },
+  "ai": {
+    "enabled": true,
+    "model": "gpt-4",
+    "parameters": {
+      "temperature": 0.7,
+      "maxTokens": 2048,
+      "topP": 1
+    },
+    "retryStrategy": {
+      "attempts": 3,
+      "delay": 1000
+    }
+  },
+  "logging": {
+    "level": "info",
+    "format": "json",
+    "directory": "./logs",
+    "maxFiles": 5,
+    "maxSize": "10m"
+  },
+  "memory": {
+    "type": "sqlite",
+    "chatHistoryRetention": 30,
+    "workspaceHistoryRetention": 90,
+    "maxChatHistorySize": 1000,
+    "maxWorkspaceHistorySize": 5000
+  },
+  "analytics": {
+    "enabled": true,
+    "trackingEvents": [
+      "task.created",
+      "task.updated",
+      "task.completed",
+      "time.started",
+      "time.stopped",
+      "notification.sent"
+    ],
+    "retentionPeriod": 180
+  },
+  "security": {
+    "encryption": {
+      "enabled": true,
+      "algorithm": "aes-256-gcm"
+    },
+    "rateLimit": {
+      "windowMs": 900000,
+      "max": 100
+    }
+  }
+}
