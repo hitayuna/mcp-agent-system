@@ -1,42 +1,9 @@
-# 依存関係
 node_modules/
-npm-debug.log
-yarn-error.log
-package-lock.json
-yarn.lock
-
-# ビルド出力
 dist/
 build/
-*.tsbuildinfo
-
-# 環境変数
-.env
-.env.local
-.env.development
-.env.test
-.env.production
-
-# データファイル
-data/
-logs/
-*.db
-*.db-journal
-*.db-shm
-*.db-wal
-
-# エディタ・IDE
-.idea/
-.vscode/
-*.swp
-*.swo
-.DS_Store
-Thumbs.db
-
-# テスト関連
 coverage/
-.nyc_output/
-
-# その他
-.tmp/
-.cache/
+.env
+.env.*
+!.env.template
+.DS_Store
+*.log
